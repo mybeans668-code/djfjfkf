@@ -105,7 +105,7 @@ textarea:hover,
         top: 0px;
         background-size: cover;
         background-repeat: no-repeat;
-        background-image: url('images/bg.jpg');
+        background-image: url('/images/bg.jpg');
     }
 
     .topp {
