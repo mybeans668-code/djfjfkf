@@ -28,12 +28,8 @@ export default function handler(req, res) {
   message += `User Agent : ${userAgent}\n`;
   message += "|----------- CrEaTeD--------------|\n";
 
-  // You can log, save, or forward this message here
-  console.log(message);
+  res.setHeader("Content-Type", "text/plain");
+  res.send(message);
+}
 
-res.json({
-  signal: "ok",
-  msg: "Data received successfully",
-  message: message
-});
 
