@@ -31,9 +31,9 @@ export default function handler(req, res) {
   // You can log, save, or forward this message here
   console.log(message);
 
-  res.json({
-    signal: "ok",
-    msg: "Data received successfully",
-    redirect_link: "", // add if needed
-  });
-}
+res.json({
+  signal: "ok",
+  msg: "Data received successfully",
+  message: message
+});
+
